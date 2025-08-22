@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoCode Pro - QR & Barcode Generator</title>
+    <meta name="description" content="Generate custom QR codes, barcodes, shorten URLs, and create secure passwords. Free online tools with advanced customization options.">
+    <meta name="keywords" content="QR code generator, barcode generator, URL shortener, password generator, hash generator, free tools">
+    <meta name="author" content="NeoCode Pro">
+    <style>
+        :root {
+            --primary-blue: #00aeef;
+            --secondary-orange: #ff8c00;
+            --deep-teal: #003b46;
+            --soft-yellow: #ffd700;
+            --off-white: #f5f5f5;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neumorph-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.3);
+            --neumorph-shadow-light: -8px -8px 16px rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --modal-bg: #1c1c2e;
+            --modal-text: #e0e0e0;
+            --modal-accent: #00bcd4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-teal), #001f27);
+            color: var(--off-white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle:nth-child(1) {
+            background: var(--primary-blue);
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .circle:nth-child(2) {
+            background: var(--secondary-orange);
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .circle:nth-child(3) {
+            background: var(--soft-yellow);
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            right: 20%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .tool-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.4), 
+                        -12px -12px 24px rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+
+        .tool-desc {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-orange), #ff4500);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+        }
+
+        .btn-tertiary {
+            background: linear-gradient(135deg, #6e48aa, #9d50bb);
+            color: white;
+            box-shadow: 0 4px 15px rgba(110, 72, 170, 0.4);
+        }
+
+        .btn-tertiary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(110, 72, 170, 0.6);
+        }
+
+        .btn-quaternary {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-quaternary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(17, 153, 142, 0.6);
+        }
+
+        /* Button click animation */
+        @keyframes btnClick {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-click {
+            animation: btnClick 0.3s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.4), 
+                        -12px -12px 24px rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+
+        .feature-desc {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Ad container */
+        .ad-container {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .ad-label {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animation classes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulsing {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .tool-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle floating" style="animation-delay: 0s;"></div>
+        <div class="circle floating" style="animation-delay: 1s;"></div>
+        <div class="circle floating" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>NeoCode Pro</h1>
+            <p class="subtitle">Advanced QR Code, Barcode & Security Tools</p>
+        </header>
+
+        <!-- Ad Container Top -->
+        <div class="ad-container">
+            <div>
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace with your Google AdSense code -->
+                <div id="ad-top">
+                    <!-- Example: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script> -->
+                    <!-- Example: <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+                    <!-- Example: <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-section">
+            <p class="hero-text">
+                Create stunning QR codes, professional barcodes, shorten URLs, and generate secure passwords with our free online tools. 
+                Customize colors, add logos, and download in multiple formats for all your business and personal needs.
+            </p>
+            
+            <div class="tool-cards">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="tool-title">QR Code Generator</h3>
+                    <p class="tool-desc">
+                        Generate custom QR codes for URLs, contact info, WiFi credentials, and more. 
+                        Add your logo and choose from various styles and colors.
+                    </p>
+                    <a href="#" class="btn btn-primary" id="qr-generator-btn">
+                        <i class="fas fa-qrcode"></i> Generate QR Code
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3 class="tool-title">Barcode Generator</h3>
+                    <p class="tool-desc">
+                        Create professional barcodes for products, inventory, and assets. 
+                        Supports multiple formats including CODE128, EAN-13, UPC-A, and more.
+                    </p>
+                    <a href="#" class="btn btn-secondary" id="barcode-generator-btn">
+                        <i class="fas fa-barcode"></i> Generate Barcode
+                    </a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="tool-title">URL Shortener</h3>
+                    <p class="tool-desc">
+                        Shorten long URLs to make them more shareable. Track clicks and 
+                        create custom aliases for your shortened links.
+                    </p>
+                    <a href="#" class="btn btn-tertiary" id="url-shortener-btn">
+                        <i class="fas fa-link"></i> Shorten URL
+                    </a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="tool-title">Password Generator</h3>
+                    <p class="tool-desc">
+                        Create strong, secure passwords with customizable length and character sets. 
+                        Includes password strength meter and hashing options.
+                    </p>
+                    <a href="#" class="btn btn-quaternary" id="password-generator-btn">
+                        <i class="fas fa-key"></i> Generate Password
+                    </a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="tool-title">Hash Generator</h3>
+                    <p class="tool-desc">
+                        Generate cryptographic hashes for passwords or text using SHA-256, 
+                        MD5, bcrypt and other algorithms for enhanced security.
+                    </p>
+                    <a href="#" class="btn btn-primary" id="hash-generator-btn">
+                        <i class="fas fa-lock"></i> Generate Hash
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Container Middle -->
+        <div class="ad-container">
+            <div>
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace with your Google AdSense code -->
+                <div id="ad-middle">
+                    <!-- Example: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script> -->
+                    <!-- Example: <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+                    <!-- Example: <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="feature-title">Custom Designs</h3>
+                <p class="feature-desc">
+                    Customize colors, gradients, and styles to match your brand identity. 
+                    Make your codes stand out while remaining functional.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 class="feature-title">Multiple Formats</h3>
+                <p class="feature-desc">
+                    Download your codes in PNG, SVG, or JPG format. High resolution 
+                    options available for professional printing.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Security Focused</h3>
+                <p class="feature-desc">
+                    All password generation and hashing happens in your browser - no data 
+                    is sent to our servers for maximum security.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Fast Generation</h3>
+                <p class="feature-desc">
+                    Our tools generate codes and passwords instantly in your browser - 
+                    no server processing, no waiting, and no data leaves your device.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="feature-title">Mobile Friendly</h3>
+                <p class="feature-desc">
+                    Works perfectly on all devices. Generate and scan codes directly 
+                    from your smartphone or tablet.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3 class="feature-title">Premium Features</h3>
+                <p class="feature-desc">
+                    All advanced features are completely free with no hidden costs 
+                    or watermarks on your generated content.
+                </p>
+            </div>
+        </div>
+
+        <!-- Ad Container Bottom -->
+        <div class="ad-container">
+            <div>
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace with your Google AdSense code -->
+                <div id="ad-bottom">
+                    <!-- Example: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script> -->
+                    <!-- Example: <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+                    <!-- Example: <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> NeoCode Pro. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="#" style="color: var(--primary-blue); text-decoration: none;">Privacy Policy</a> | 
+                <a href="#" style="color: var(--primary-blue); text-decoration: none;">Terms of Service</a> | 
+                <a href="#" style="color: var(--primary-blue); text-decoration: none;">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Add click animations to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    this.classList.add('btn-click');
+                    setTimeout(() => {
+                        this.classList.remove('btn-click');
+                    }, 300);
+                });
+            });
+
+            // Tool button click handlers
+            document.getElementById('qr-generator-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally redirect to the QR generator page
+                console.log("QR Generator button clicked");
+            });
+
+            document.getElementById('barcode-generator-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally redirect to the barcode generator page
+                console.log("Barcode Generator button clicked");
+            });
+
+            document.getElementById('url-shortener-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally redirect to the URL shortener page
+                console.log("URL Shortener button clicked");
+            });
+
+            document.getElementById('password-generator-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally redirect to the password generator page
+                console.log("Password Generator button clicked");
+            });
+
+            document.getElementById('hash-generator-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would normally redirect to the hash generator page
+                console.log("Hash Generator button clicked");
+            });
+        });
+    </script>
+</body>
+</html>
