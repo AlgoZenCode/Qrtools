@@ -584,7 +584,7 @@
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                     // Prevent default anchor behavior
+                       
                     this.classList.add('btn-click');
                     setTimeout(() => {
                         this.classList.remove('btn-click');
