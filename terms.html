@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | QRTools - Legal Agreement</title>
+    <meta name="description" content="QRTools Terms & Conditions: Legal agreement for using our free online tools. Read our terms of service, user responsibilities, and limitations.">
+    <style>
+        :root {
+            --primary-blue: #00aeef;
+            --secondary-orange: #ff8c00;
+            --deep-teal: #003b46;
+            --soft-yellow: #ffd700;
+            --off-white: #f5f5f5;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neumorph-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.3);
+            --neumorph-shadow-light: -8px -8px 16px rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --green-success: #4CAF50;
+            --container-padding: clamp(1rem, 5vw, 3rem);
+            --section-gap: clamp(2rem, 5vw, 4rem);
+            --card-padding: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-teal), #001f27);
+            color: var(--off-white);
+            min-height: 100vh;
+            padding: var(--container-padding);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle:nth-child(1) {
+            background: var(--primary-blue);
+            width: min(300px, 30vw);
+            height: min(300px, 30vw);
+            top: -5%;
+            left: -5%;
+        }
+
+        .circle:nth-child(2) {
+            background: var(--secondary-orange);
+            width: min(400px, 40vw);
+            height: min(400px, 40vw);
+            bottom: -10%;
+            right: -10%;
+        }
+
+        .circle:nth-child(3) {
+            background: var(--soft-yellow);
+            width: min(200px, 20vw);
+            height: min(200px, 20vw);
+            top: 30%;
+            right: 20%;
+        }
+
+        .container {
+            max-width: min(1000px, 90vw);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            padding-bottom: clamp(1rem, 2vw, 1.5rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(0.5rem, 2vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+            border-radius: 8px;
+            transition: var(--transition);
+            opacity: 0.9;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: rgba(0, 174, 239, 0.2);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--section-gap);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 24px);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            max-width: min(700px, 90%);
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.6;
+        }
+
+        .update-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2.5vw, 1.5rem);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        .update-date i {
+            color: var(--primary-blue);
+        }
+
+        /* Terms Content */
+        .terms-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 20px);
+            padding: var(--card-padding);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+            margin-bottom: var(--section-gap);
+        }
+
+        .terms-section {
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            padding-bottom: clamp(1.5rem, 3vw, 2rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terms-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            opacity: 0.9;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .warning-box {
+            background: rgba(255, 140, 0, 0.1);
+            border-left: 4px solid var(--secondary-orange);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px) 0;
+            margin: 1.5rem 0;
+        }
+
+        .info-box {
+            background: rgba(0, 174, 239, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px) 0;
+            margin: 1.5rem 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tool-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prohibited-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .prohibited-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 77, 77, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #ff4d4d;
+        }
+
+        .prohibited-icon {
+            color: #ff4d4d;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .disclaimer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .disclaimer-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .disclaimer-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff8c00;
+        }
+
+        .contact-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4CAF50;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px) 0;
+            margin: 1.5rem 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(255, 140, 0, 0.1));
+            border-radius: clamp(16px, 3vw, 24px);
+            margin-bottom: var(--section-gap);
+        }
+
+        .cta-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            justify-content: center;
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.3rem, 1vw, 0.5rem);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 12px);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            min-width: min(200px, 100%);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-orange), #ff4500);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin-top: clamp(2rem, 5vw, 4rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--off-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .section-number {
+                margin-bottom: 0.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .disclaimer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .background-elements,
+            .btn,
+            .nav-links,
+            .footer-links,
+            .cta-section {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .terms-content {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+            
+            .section-title {
+                color: #0066cc;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header class="header-nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="logo-text">QRTools</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="tools.html" class="nav-link">All Tools</a>
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                <a href="#" class="nav-link active">Terms & Conditions</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Terms & Conditions</h1>
+            <p class="hero-subtitle">
+                Legal agreement for using QRTools. Please read these terms carefully before using our services.
+            </p>
+            <div class="update-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Last Updated: 7 December 2025</span>
+            </div>
+        </section>
+
+        <!-- Terms Content -->
+        <div class="terms-content">
+            <!-- Section 1: Acceptance of Terms -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    Acceptance of Terms
+                </h2>
+                <div class="section-content">
+                    <p>Welcome to QRTools, available at <strong>https://algozencode.github.io/Qrtools/</strong>.</p>
+                    <p>By accessing or using this website, you agree to comply with and be bound by the following Terms & Conditions. Please read them carefully before using our tools.</p>
+                    
+                    <div class="warning-box">
+                        <p><i class="fas fa-exclamation-triangle" style="color: var(--secondary-orange); margin-right: 0.5rem;"></i> 
+                        <strong>Important:</strong> If you do not agree with any part of these terms, you should stop using the website immediately.</p>
+                    </div>
+                    
+                    <p>These terms apply to all visitors, users, and anyone who accesses the website.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Purpose of the Website -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Purpose of the Website
+                </h2>
+                <div class="section-content">
+                    <p>QRTools provides a collection of free online utilities, which may include:</p>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-item">QR Code Generator</div>
+                        <div class="tool-item">Hash Generator</div>
+                        <div class="tool-item">Password Generator</div>
+                        <div class="tool-item">URL Shortener</div>
+                        <div class="tool-item">Text Utilities</div>
+                        <div class="tool-item">Other browser-based tools</div>
+                    </div>
+                    
+                    <p>These tools are designed for convenience, education, and personal or business use.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: No Account Required -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    No Account Required
+                </h2>
+                <div class="section-content">
+                    <p>QRTools does not require signing up, creating an account, or providing any personal information.</p>
+                    <div class="info-box">
+                        <p><i class="fas fa-user-secret" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> 
+                        <strong>Complete Anonymity:</strong> You can use all tools anonymously without any registration or login.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Data Privacy & Processing -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Data Privacy & Processing
+                </h2>
+                <div class="section-content">
+                    <p>Your privacy is extremely important to us. Our <a href="privacy.html" style="color: var(--primary-blue); text-decoration: none;">Privacy Policy</a> explains how we handle your data in detail.</p>
+                    
+                    <div class="info-box">
+                        <p><strong>Key points:</strong></p>
+                        <p><i class="fas fa-laptop-code" style="margin-right: 0.5rem;"></i> Most tools run completely client-side (inside your browser)</p>
+                        <p><i class="fas fa-database" style="margin-right: 0.5rem;"></i> We do not store, save, or track your input data</p>
+                        <p><i class="fas fa-trash-alt" style="margin-right: 0.5rem;"></i> Automatic deletion within 24 hours if backend processing occurs</p>
+                        <p><i class="fas fa-handshake-slash" style="margin-right: 0.5rem;"></i> We do not sell or share data with any third parties</p>
+                    </div>
+                    
+                    <p>By using the website, you agree to our privacy practices described in the Privacy Policy.</p>
+                </div>
+            </section>
+
+            <!-- Section 5: User Responsibilities -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    User Responsibilities
+                </h2>
+                <div class="section-content">
+                    <p>You agree to use QRTools responsibly and legally. You must not use the website:</p>
+                    
+                    <ul class="prohibited-list">
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>For any illegal activities or unlawful purposes</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>To generate harmful or malicious content</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>To violate intellectual property rights</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>To disrupt or damage the website or its infrastructure</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>To hack, abuse, or overload our tools</div>
+                        </li>
+                        <li class="prohibited-item">
+                            <i class="fas fa-ban prohibited-icon"></i>
+                            <div>To perform actions that violate any law or regulation</div>
+                        </li>
+                    </ul>
+                    
+                    <p><strong>You are fully responsible for any content you create using our tools.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 6: Accuracy & Limitations -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Accuracy & Limitations of Tools
+                </h2>
+                <div class="section-content">
+                    <p>While we try to ensure our tools work accurately and smoothly, we do not guarantee:</p>
+                    
+                    <div class="disclaimer-grid">
+                        <div class="disclaimer-item">
+                            <div class="disclaimer-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>100% accuracy of results</div>
+                        </div>
+                        <div class="disclaimer-item">
+                            <div class="disclaimer-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>100% uptime or availability</div>
+                        </div>
+                        <div class="disclaimer-item">
+                            <div class="disclaimer-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <div>Error-free performance</div>
+                        </div>
+                        <div class="disclaimer-item">
+                            <div class="disclaimer-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div>Data consistency across all operations</div>
+                        </div>
+                        <div class="disclaimer-item">
+                            <div class="disclaimer-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>Compatibility with all devices or browsers</div>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <p><i class="fas fa-exclamation-circle" style="color: var(--secondary-orange); margin-right: 0.5rem;"></i> 
+                        <strong>Disclaimer:</strong> You use the website at your own risk. We are not responsible for losses or issues resulting from incorrect usage or technical limitations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Intellectual Property -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    Intellectual Property Rights
+                </h2>
+                <div class="section-content">
+                    <div class="info-box">
+                        <p><strong>Unless otherwise stated:</strong></p>
+                        <p>The design, layout, UI, source code, and branding of QRTools belong to AlgozenCode.</p>
+                        <p>You may not copy, redistribute, or reproduce our website content without permission.</p>
+                    </div>
+                    
+                    <p><strong>Important:</strong> All utilities are free to use, and the content you generate belongs to you, not us.</p>
+                </div>
+            </section>
+
+            <!-- Section 8: Third-Party Links -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    Third-Party Links
+                </h2>
+                <div class="section-content">
+                    <p>QRTools may contain links to other websites. We are not responsible for:</p>
+                    
+                    <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="tool-item">Their content or accuracy</div>
+                        <div class="tool-item">Their privacy practices</div>
+                        <div class="tool-item">Their terms and conditions</div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>You visit third-party links at your own risk.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 9: No Warranty -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">9</span>
+                    No Warranty (Disclaimer)
+                </h2>
+                <div class="section-content">
+                    <p>QRTools is provided "as is" and "as available" without any warranties, express or implied, including:</p>
+                    
+                    <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="tool-item">Accuracy of results</div>
+                        <div class="tool-item">Reliability of service</div>
+                        <div class="tool-item">Performance consistency</div>
+                        <div class="tool-item">Service availability</div>
+                        <div class="tool-item">Fitness for particular purpose</div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;">We do not guarantee that the website will always function error-free or be available without interruption.</p>
+                </div>
+            </section>
+
+            <!-- Section 10: Limitation of Liability -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">10</span>
+                    Limitation of Liability
+                </h2>
+                <div class="section-content">
+                    <div class="warning-box">
+                        <p><strong>To the fullest extent permitted by law:</strong></p>
+                        <p>QRTools and AlgozenCode are not liable for direct, indirect, incidental, or consequential damages.</p>
+                        <p>We are not responsible for data loss, device issues, or any damages resulting from using our tools.</p>
+                    </div>
+                    
+                    <p><strong>You use the website at your own discretion and risk.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 11: Modifications -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">11</span>
+                    Modifications to the Service
+                </h2>
+                <div class="section-content">
+                    <p>We reserve the right to:</p>
+                    
+                    <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="tool-item">Update any tool or feature</div>
+                        <div class="tool-item">Change functionality</div>
+                        <div class="tool-item">Discontinue services</div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;">We may also update these Terms & Conditions when needed. The "Last Updated" date will always show the most recent version.</p>
+                    <p><strong>Changes may occur with or without notice.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 12: Governing Law -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">12</span>
+                    Governing Law
+                </h2>
+                <div class="section-content">
+                    <p>These Terms & Conditions are governed by applicable international digital laws and general online service standards.</p>
+                    <p>Any disputes arising will be handled under fair-use and common-law principles.</p>
+                </div>
+            </section>
+
+            <!-- Section 13: Contact Information -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <span class="section-number">13</span>
+                    Contact Information
+                </h2>
+                <div class="section-content">
+                    <p>If you have any questions about these Terms, please contact us:</p>
+                    
+                    <div class="contact-box">
+                        <p><strong>AlgozenCode Team</strong></p>
+                        <p>📧 Email: <a href="mailto:contact@algozencode.com" style="color: #4CAF50; text-decoration: none;">contact@algozencode.com</a></p>
+                    </div>
+                    
+                    <p>We respond to terms-related requests promptly.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Thank You for Using QRTools</h2>
+            <p class="section-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                By using this website, you agree to these Terms & Conditions.
+            </p>
+            
+            <div class="info-box" style="background: rgba(255, 255, 255, 0.1); border-left-color: var(--primary-blue); margin: 2rem auto; max-width: 600px;">
+                <h3 style="font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 600; text-align: center;">
+                    <i class="fas fa-heart" style="color: #ff4d4d; margin-right: 0.5rem;"></i>
+                    We appreciate your trust and hope our tools make your work easier, faster, and safer.
+                </h3>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="privacy.html" class="btn btn-secondary">
+                    <i class="fas fa-user-shield"></i> Read Privacy Policy
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="tools.html" class="footer-link">All Tools</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms & Conditions</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 QRTools by AlgozenCode. All rights reserved.<br>
+                Made with <i class="fas fa-heart" style="color: #ff4d4d;"></i> for the digital community.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe terms sections
+        document.querySelectorAll('.terms-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Dynamic font size adjustment
+        function adjustFontSizes() {
+            const width = window.innerWidth;
+            const html = document.documentElement;
+            
+            if (width < 400) {
+                html.style.fontSize = '14px';
+            } else if (width < 768) {
+                html.style.fontSize = '15px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+
+        // Initial adjustment
+        adjustFontSizes();
+        
+        // Adjust on resize
+        window.addEventListener('resize', adjustFontSizes);
+    </script>
+</body>
+</html>
