@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | QRTools - Privacy-First Online Utilities</title>
+    <meta name="description" content="Learn about QRTools - your fast, secure and privacy-friendly online utility hub. Discover our mission, privacy principles, and tools.">
+    <style>
+        :root {
+            --primary-blue: #00aeef;
+            --secondary-orange: #ff8c00;
+            --deep-teal: #003b46;
+            --soft-yellow: #ffd700;
+            --off-white: #f5f5f5;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neumorph-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.3);
+            --neumorph-shadow-light: -8px -8px 16px rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --green-success: #4CAF50;
+            --container-padding: clamp(1rem, 5vw, 3rem);
+            --section-gap: clamp(2rem, 5vw, 4rem);
+            --card-padding: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-teal), #001f27);
+            color: var(--off-white);
+            min-height: 100vh;
+            padding: var(--container-padding);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle:nth-child(1) {
+            background: var(--primary-blue);
+            width: min(300px, 30vw);
+            height: min(300px, 30vw);
+            top: -5%;
+            left: -5%;
+        }
+
+        .circle:nth-child(2) {
+            background: var(--secondary-orange);
+            width: min(400px, 40vw);
+            height: min(400px, 40vw);
+            bottom: -10%;
+            right: -10%;
+        }
+
+        .circle:nth-child(3) {
+            background: var(--soft-yellow);
+            width: min(200px, 20vw);
+            height: min(200px, 20vw);
+            top: 30%;
+            right: 20%;
+        }
+
+        .container {
+            max-width: min(1200px, 90vw);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            padding-bottom: clamp(1rem, 2vw, 1.5rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(0.5rem, 2vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+            border-radius: 8px;
+            transition: var(--transition);
+            opacity: 0.9;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: rgba(0, 174, 239, 0.2);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--section-gap);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 24px);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            max-width: min(700px, 90%);
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.6;
+        }
+
+        .update-date {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            opacity: 0.8;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 20px);
+            padding: var(--card-padding);
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+            transition: var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.4), 
+                        -12px -12px 24px rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            flex-wrap: wrap;
+        }
+
+        .section-icon {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .content-text {
+            line-height: 1.8;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+
+        .highlight-box {
+            background: rgba(0, 174, 239, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px) 0;
+            margin: clamp(1.5rem, 3vw, 2rem) 0;
+        }
+
+        .privacy-list {
+            list-style: none;
+            margin: clamp(1.5rem, 3vw, 2rem) 0;
+        }
+
+        .privacy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            padding: clamp(0.8rem, 2vw, 1rem);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: clamp(8px, 2vw, 12px);
+        }
+
+        .check-icon {
+            color: var(--green-success);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin: clamp(1.5rem, 3vw, 2rem) 0;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: clamp(12px, 2vw, 16px);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tool-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            color: var(--primary-blue);
+        }
+
+        .tool-name {
+            font-weight: 600;
+            margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
+        }
+
+        .tool-desc {
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Principles Grid */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin: clamp(1.5rem, 3vw, 2rem) 0;
+        }
+
+        .principle-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: clamp(12px, 2vw, 16px);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            text-align: center;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .principle-icon {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: clamp(0.8rem, 2vw, 1rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .principle-title {
+            font-weight: 600;
+            margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(255, 140, 0, 0.1));
+            border-radius: clamp(16px, 3vw, 24px);
+            margin: clamp(2rem, 5vw, 4rem) 0;
+        }
+
+        .cta-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            justify-content: center;
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.3rem, 1vw, 0.5rem);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 12px);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            min-width: min(200px, 100%);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-orange), #ff4500);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin-top: clamp(2rem, 5vw, 4rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--off-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            line-height: 1.6;
+        }
+
+        /* Extra Small Devices (Phones) */
+        @media (max-width: 576px) {
+            .header-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .tools-grid,
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Small Devices (Tablets) */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .tools-grid,
+            .principles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header-nav {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* Medium Devices (Laptops) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .tools-grid,
+            .principles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Large Devices (Desktops) */
+        @media (min-width: 993px) {
+            .tools-grid,
+            .principles-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Ultra-wide screens */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        /* Portrait mode optimization */
+        @media (orientation: portrait) and (max-height: 800px) {
+            .hero-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Landscape mode optimization */
+        @media (orientation: landscape) and (max-height: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .header-nav {
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .content-text {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .tool-card,
+            .principle-card {
+                min-height: 150px;
+            }
+        }
+
+        /* High DPI screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .content-card,
+            .hero-section,
+            .cta-section {
+                backdrop-filter: blur(20px);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .background-elements,
+            .btn,
+            .nav-links,
+            .footer-links {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .content-card,
+            .hero-section {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header class="header-nav">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="logo-text">QRTools</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">About Us</a>
+                <a href="index.html" class="nav-link">All Tools</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">About QRTools</h1>
+            <p class="hero-subtitle">
+                Your fast, secure and privacy-friendly online utility hub. Built with ❤️ by AlgozenCode.
+            </p>
+            <span class="update-date"><i class="fas fa-calendar-alt"></i> Updated: 7 December 2025</span>
+        </section>
+
+        <!-- Mission Section -->
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-bullseye section-icon"></i> Our Mission
+            </h2>
+            <p class="content-text">
+                At QRTools by AlgozenCode, our mission is simple: to make powerful digital tools accessible, fast, and extremely easy to use for everyone. In a world where online utilities have become a daily necessity, we believe users deserve tools that are reliable, transparent, and respectful of their privacy.
+            </p>
+            <p class="content-text">
+                This website has been created to provide a collection of lightweight, browser-based utilities that help you complete essential tasks such as generating QR codes, hashing text, creating secure passwords, shortening URLs, and more — all without complicated software or account registration.
+            </p>
+        </div>
+
+        <!-- Privacy First Section -->
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-user-shield section-icon"></i> Privacy First. Always.
+            </h2>
+            <p class="content-text">
+                One of the core principles behind QRTools is data privacy. We understand that the content you enter into any online tool is often sensitive or personal. That is why our platform is designed from the ground up to handle your data responsibly.
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>Most of our utilities operate directly inside your browser using client-side scripts.</strong> This means the information you enter never even reaches our server in the first place. Whenever backend operations are required for the tool to function, we ensure that your data is never stored permanently.</p>
+            </div>
+            
+            <ul class="privacy-list">
+                <li class="privacy-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div>
+                        <strong>We do not save or log your data in our backend.</strong>
+                        <p>Your information stays private and secure.</p>
+                    </div>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div>
+                        <strong>Automatic data deletion.</strong>
+                        <p>If temporary processing is required, the data is automatically deleted within 24 hours.</p>
+                    </div>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div>
+                        <strong>No data sharing or selling.</strong>
+                        <p>We do not sell, share, or analyze user information.</p>
+                    </div>
+                </li>
+                <li class="privacy-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <div>
+                        <strong>No tracking, no unnecessary cookies.</strong>
+                        <p>No sign-up required, no tracking cookies, just pure utility.</p>
+                    </div>
+                </li>
+            </ul>
+            
+            <p class="content-text">
+                Our goal is to give you peace of mind every time you use our platform. You remain in full control of your information.
+            </p>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-tools section-icon"></i> Simple Tools That Work Instantly
+            </h2>
+            <p class="content-text">
+                QRTools focuses on speed and accuracy. Whether you are generating a QR code for your business card, verifying a hash value, or creating a secure password, every tool is designed to complete the task in seconds. No complicated steps, no confusing menus — just clean, simple functionality.
+            </p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="tool-name">QR Code Generator</h3>
+                    <p class="tool-desc">Create fast, scannable QR codes for URLs, text, or business use.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="tool-name">URL Shortener</h3>
+                    <p class="tool-desc">Convert long links into short, easy-to-share URLs.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="tool-name">Password Generator</h3>
+                    <p class="tool-desc">Instantly create strong, random passwords to boost your online security.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="tool-name">Hash Generator</h3>
+                    <p class="tool-desc">Generate MD5, SHA-1, SHA-256 and other hash values for verification.</p>
+                </div>
+            </div>
+            
+            <p class="content-text" style="margin-top: 2rem;">
+                Each tool is responsive, mobile-friendly, and optimized to work smoothly on all devices.
+            </p>
+        </div>
+
+        <!-- Why We Built Section -->
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb section-icon"></i> Why We Built QRTools
+            </h2>
+            <p class="content-text">
+                Many online utility websites either overload users with ads or quietly collect data in the background. We wanted to build something different — a clean, ad-free, and privacy-respecting tool platform that puts the user first.
+            </p>
+            <p class="content-text">
+                QRTools is built as an open, transparent utility hub that you can trust. Whether you're a student, a developer, a digital creator, or an everyday user, our tools are designed to simplify your workflow.
+            </p>
+        </div>
+
+        <!-- Improvement Section -->
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line section-icon"></i> Constant Improvement
+            </h2>
+            <p class="content-text">
+                We continue to update QRTools regularly with new features, better performance, and a cleaner UI. The web evolves fast, and we evolve with it. Our focus remains on:
+            </p>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="principle-title">Speed</h3>
+                    <p>Lightning-fast tools with instant results</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3 class="principle-title">Accuracy</h3>
+                    <p>Reliable tools that work precisely every time</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="principle-title">Modern Design</h3>
+                    <p>Clean, intuitive interfaces for all users</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="principle-title">Strong Security</h3>
+                    <p>Built with security as a core foundation</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="principle-title">User Privacy</h3>
+                    <p>Your data stays private and secure</p>
+                </div>
+            </div>
+            
+            <p class="content-text" style="margin-top: 2rem;">
+                Your feedback inspires our updates, so feel free to reach out anytime.
+            </p>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Thank You for Using QRTools</h2>
+            <p class="content-text" style="max-width: min(800px, 90%); margin: 0 auto 1rem;">
+                We appreciate every visitor who spends their valuable time using our tools. Your trust motivates us to keep improving and adding more features.
+            </p>
+            
+            <div class="highlight-box" style="background: rgba(255, 255, 255, 0.1); border-left-color: var(--secondary-orange); margin: clamp(1.5rem, 3vw, 2rem) auto; max-width: min(700px, 90%);">
+                <h3 style="font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 0.5rem;">QRTools will always remain:</h3>
+                <p style="font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 600; background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                    Fast. Simple. Private. Secure.
+                </p>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Try Our Tools
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="index.html" class="footer-link">All Tools</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 QRTools by AlgozenCode. All rights reserved.<br>
+                Made with <i class="fas fa-heart" style="color: #ff4d4d;"></i> for the digital community.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe content cards
+        document.querySelectorAll('.content-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Handle orientation changes
+        let timeout;
+        window.addEventListener('orientationchange', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                window.location.reload();
+            }, 100);
+        });
+
+        // Dynamic font size adjustment for very small screens
+        function adjustFontSizes() {
+            const width = window.innerWidth;
+            const html = document.documentElement;
+            
+            if (width < 400) {
+                html.style.fontSize = '14px';
+            } else if (width < 768) {
+                html.style.fontSize = '15px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+
+        // Initial adjustment
+        adjustFontSizes();
+        
+        // Adjust on resize
+        window.addEventListener('resize', adjustFontSizes);
+    </script>
+</body>
+</html>
