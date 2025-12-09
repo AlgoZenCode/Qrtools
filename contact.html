@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | QRTools - Get in Touch</title>
+    <meta name="description" content="Contact QRTools support team. Get help with our tools, report issues, share feedback, or ask privacy questions.">
+    <style>
+        :root {
+            --primary-blue: #00aeef;
+            --secondary-orange: #ff8c00;
+            --deep-teal: #003b46;
+            --soft-yellow: #ffd700;
+            --off-white: #f5f5f5;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neumorph-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.3);
+            --neumorph-shadow-light: -8px -8px 16px rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --green-success: #4CAF50;
+            --container-padding: clamp(1rem, 5vw, 3rem);
+            --section-gap: clamp(2rem, 5vw, 4rem);
+            --card-padding: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-teal), #001f27);
+            color: var(--off-white);
+            min-height: 100vh;
+            padding: var(--container-padding);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle:nth-child(1) {
+            background: var(--primary-blue);
+            width: min(300px, 30vw);
+            height: min(300px, 30vw);
+            top: -5%;
+            left: -5%;
+        }
+
+        .circle:nth-child(2) {
+            background: var(--secondary-orange);
+            width: min(400px, 40vw);
+            height: min(400px, 40vw);
+            bottom: -10%;
+            right: -10%;
+        }
+
+        .circle:nth-child(3) {
+            background: var(--soft-yellow);
+            width: min(200px, 20vw);
+            height: min(200px, 20vw);
+            top: 30%;
+            right: 20%;
+        }
+
+        .container {
+            max-width: min(1000px, 90vw);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            padding-bottom: clamp(1rem, 2vw, 1.5rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(0.5rem, 2vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+            border-radius: 8px;
+            transition: var(--transition);
+            opacity: 0.9;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: rgba(0, 174, 239, 0.2);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--section-gap);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 24px);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            max-width: min(700px, 90%);
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.6;
+        }
+
+        .update-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2.5vw, 1.5rem);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        .update-date i {
+            color: var(--primary-blue);
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--section-gap);
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 20px);
+            padding: var(--card-padding);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.4), 
+                        -12px -12px 24px rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card-title {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+
+        .card-content {
+            line-height: 1.8;
+            opacity: 0.9;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p {
+            margin-bottom: 1rem;
+        }
+
+        .email-container {
+            background: rgba(0, 174, 239, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            width: 100%;
+            border: 1px solid rgba(0, 174, 239, 0.3);
+        }
+
+        .email-address {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            color: var(--primary-blue);
+            word-break: break-all;
+            margin-bottom: 1rem;
+        }
+
+        .email-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .email-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .inquiries-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+
+        .inquiry-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .inquiry-icon {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .policy-link {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--off-white);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-link:hover {
+            background: rgba(0, 174, 239, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 215, 0, 0.1));
+            border-radius: clamp(16px, 3vw, 24px);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: var(--section-gap);
+        }
+
+        .feedback-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--secondary-orange), var(--soft-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        /* Thank You Section */
+        .thankyou-section {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(255, 140, 0, 0.1));
+            border-radius: clamp(16px, 3vw, 24px);
+            margin-bottom: var(--section-gap);
+        }
+
+        .thankyou-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            justify-content: center;
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.3rem, 1vw, 0.5rem);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 12px);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            min-width: min(200px, 100%);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-orange), #ff4500);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin-top: clamp(2rem, 5vw, 4rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--off-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .policy-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .background-elements,
+            .btn,
+            .nav-links,
+            .footer-links,
+            .email-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .contact-card,
+            .feedback-section,
+            .thankyou-section {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+            
+            .email-container {
+                border: 2px solid #0066cc;
+            }
+            
+            .email-address {
+                color: #0066cc;
+            }
+        }
+
+        /* Animation for email copy */
+        .email-copied {
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header class="header-nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="logo-text">QRTools</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="aboutus.html" class="nav-link">About Us</a>
+                <a href="index.html" class="nav-link">All Tools</a>
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                <a href="terms.html" class="nav-link">Terms & Conditions</a>
+                <a href="#" class="nav-link active">Contact Us</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Contact Us</h1>
+            <p class="hero-subtitle">
+                Thank you for using QRTools, a simple, fast, and privacy-friendly online utility platform.
+                We value your feedback, questions, and suggestions.
+            </p>
+            <div class="update-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Last Updated: 7 December 2025</span>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+            <!-- Email Support Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2 class="card-title">📩 Email Support</h2>
+                <div class="card-content">
+                    <p>For all inquiries, please email us at:</p>
+                    
+                    <div class="email-container">
+                        <div class="email-address" id="email-address">
+                            serviceteam12112@gmail.com
+                        </div>
+                        <button class="email-button" id="copy-email-btn">
+                            <i class="fas fa-copy"></i> Copy Email Address
+                        </button>
+                        <a href="mailto:serviceteam12112@gmail.com" class="email-button" style="margin-left: 10px; background: linear-gradient(135deg, var(--secondary-orange), #ff4500);">
+                            <i class="fas fa-paper-plane"></i> Send Email
+                        </a>
+                    </div>
+                    
+                    <p>You may contact us for:</p>
+                    
+                    <ul class="inquiries-list">
+                        <li class="inquiry-item">
+                            <i class="fas fa-question-circle inquiry-icon"></i>
+                            <div>General questions about our tools</div>
+                        </li>
+                        <li class="inquiry-item">
+                            <i class="fas fa-lightbulb inquiry-icon"></i>
+                            <div>Feedback and feature requests</div>
+                        </li>
+                        <li class="inquiry-item">
+                            <i class="fas fa-bug inquiry-icon"></i>
+                            <div>Bug reports and technical issues</div>
+                        </li>
+                        <li class="inquiry-item">
+                            <i class="fas fa-user-shield inquiry-icon"></i>
+                            <div>Privacy-related questions</div>
+                        </li>
+                        <li class="inquiry-item">
+                            <i class="fas fa-file-contract inquiry-icon"></i>
+                            <div>Terms & Conditions inquiries</div>
+                        </li>
+                        <li class="inquiry-item">
+                            <i class="fas fa-handshake inquiry-icon"></i>
+                            <div>Collaboration or partnership inquiries</div>
+                        </li>
+                    </ul>
+                    
+                    <p><strong>Our team works to reply as quickly as possible.</strong></p>
+                </div>
+            </div>
+
+            <!-- Privacy & Response Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="card-title">🔒 Privacy & Data Handling</h2>
+                <div class="card-content">
+                    <p>QRTools does not store your personal input or tool data. If backend processing is used, all data is automatically deleted within 24 hours.</p>
+                    
+                    <p>You can learn more in our:</p>
+                    
+                    <div class="policy-links">
+                        <a href="privacy.html" class="policy-link">
+                            <i class="fas fa-user-shield"></i> Privacy Policy
+                        </a>
+                        <a href="terms.html" class="policy-link">
+                            <i class="fas fa-file-contract"></i> Terms & Conditions
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-icon" style="margin-top: 2rem;">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2 class="card-title">📬 Response Time</h2>
+                <div class="card-content">
+                    <p>We try to respond within <strong>24–48 hours</strong>, depending on the volume of requests.</p>
+                    <p><i class="fas fa-heart" style="color: #ff4d4d; margin-right: 0.5rem;"></i> Your patience is appreciated.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <h2 class="feedback-title">⭐ Feedback Helps Us Improve</h2>
+            <div class="card-content" style="max-width: 700px; margin: 0 auto;">
+                <p>If you have ideas for new features or tools, feel free to share them.</p>
+                <p><strong>Your feedback directly helps us make QRTools better for everyone.</strong></p>
+            </div>
+        </section>
+
+        <!-- Thank You Section -->
+        <section class="thankyou-section">
+            <h2 class="thankyou-title">Thank You for Reaching Out</h2>
+            <div class="card-content" style="max-width: 700px; margin: 0 auto;">
+                <p>Your trust means a lot to us.</p>
+                <p>We'll continue improving QRTools so you always have fast, secure, and easy-to-use online tools.</p>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-tools"></i> Try Our Tools
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="aboutus.html" class="footer-link">About Us</a>
+                <a href="index.html" class="footer-link">All Tools</a>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 QRTools by AlgozenCode. All rights reserved.<br>
+                Made with <i class="fas fa-heart" style="color: #ff4d4d;"></i> for the digital community.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Copy email to clipboard
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        const emailAddress = document.getElementById('email-address');
+        
+        copyEmailBtn.addEventListener('click', async function() {
+            try {
+                await navigator.clipboard.writeText('serviceteam12112@gmail.com');
+                
+                // Show success feedback
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                this.classList.add('email-copied');
+                this.style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.classList.remove('email-copied');
+                    this.style.background = 'linear-gradient(135deg, var(--primary-blue), #007bff)';
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                
+                // Fallback for browsers that don't support clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = 'serviceteam12112@gmail.com';
+                document.body.appendChild(textArea);
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    
+                    // Show success feedback
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    this.classList.add('email-copied');
+                    this.style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
+                    
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('email-copied');
+                        this.style.background = 'linear-gradient(135deg, var(--primary-blue), #007bff)';
+                    }, 2000);
+                    
+                } catch (err) {
+                    console.error('Fallback copy failed: ', err);
+                    alert('Failed to copy email. Please copy manually: serviceteam12112@gmail.com');
+                }
+                
+                document.body.removeChild(textArea);
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe contact cards
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Observe sections
+        document.querySelectorAll('.feedback-section, .thankyou-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Dynamic font size adjustment
+        function adjustFontSizes() {
+            const width = window.innerWidth;
+            const html = document.documentElement;
+            
+            if (width < 400) {
+                html.style.fontSize = '14px';
+            } else if (width < 768) {
+                html.style.fontSize = '15px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+
+        // Initial adjustment
+        adjustFontSizes();
+        
+        // Adjust on resize
+        window.addEventListener('resize', adjustFontSizes);
+
+        // Email validation for mailto link
+        const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+        emailLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Optional: Add analytics or tracking here
+                console.log('Email link clicked');
+            });
+        });
+    </script>
+</body>
+</html>
