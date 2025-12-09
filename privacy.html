@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | QRTools - Your Privacy First</title>
+    <meta name="description" content="QRTools Privacy Policy: Learn how we protect your privacy with our strict no-data-collection, no-tracking policy for all online tools.">
+    <style>
+        :root {
+            --primary-blue: #00aeef;
+            --secondary-orange: #ff8c00;
+            --deep-teal: #003b46;
+            --soft-yellow: #ffd700;
+            --off-white: #f5f5f5;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neumorph-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.3);
+            --neumorph-shadow-light: -8px -8px 16px rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --green-success: #4CAF50;
+            --container-padding: clamp(1rem, 5vw, 3rem);
+            --section-gap: clamp(2rem, 5vw, 4rem);
+            --card-padding: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-teal), #001f27);
+            color: var(--off-white);
+            min-height: 100vh;
+            padding: var(--container-padding);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle:nth-child(1) {
+            background: var(--primary-blue);
+            width: min(300px, 30vw);
+            height: min(300px, 30vw);
+            top: -5%;
+            left: -5%;
+        }
+
+        .circle:nth-child(2) {
+            background: var(--secondary-orange);
+            width: min(400px, 40vw);
+            height: min(400px, 40vw);
+            bottom: -10%;
+            right: -10%;
+        }
+
+        .circle:nth-child(3) {
+            background: var(--soft-yellow);
+            width: min(200px, 20vw);
+            height: min(200px, 20vw);
+            top: 30%;
+            right: 20%;
+        }
+
+        .container {
+            max-width: min(1000px, 90vw);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            padding-bottom: clamp(1rem, 2vw, 1.5rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(0.5rem, 2vw, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+            border-radius: 8px;
+            transition: var(--transition);
+            opacity: 0.9;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: rgba(0, 174, 239, 0.2);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--section-gap);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 24px);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            max-width: min(700px, 90%);
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.6;
+        }
+
+        .update-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2.5vw, 1.5rem);
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        .update-date i {
+            color: var(--primary-blue);
+        }
+
+        /* Privacy Policy Content */
+        .policy-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(16px, 3vw, 20px);
+            padding: var(--card-padding);
+            box-shadow: var(--neumorph-shadow-dark), var(--neumorph-shadow-light);
+        }
+
+        .policy-section {
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            padding-bottom: clamp(1.5rem, 3vw, 2rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            opacity: 0.9;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight-box {
+            background: rgba(0, 174, 239, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 0 clamp(8px, 2vw, 12px) clamp(8px, 2vw, 12px) 0;
+            margin: 1.5rem 0;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: clamp(12px, 2vw, 16px);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .principle-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .principle-icon {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: var(--green-success);
+        }
+
+        .principle-text {
+            font-weight: 600;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+
+        .no-collect-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .no-collect-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .no-collect-icon {
+            color: #ff4d4d;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tool-item {
+            background: rgba(0, 174, 239, 0.05);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(255, 140, 0, 0.1));
+            border-radius: clamp(16px, 3vw, 24px);
+            margin: clamp(2rem, 5vw, 4rem) 0;
+        }
+
+        .cta-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: clamp(0.8rem, 2vw, 1rem);
+            justify-content: center;
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.3rem, 1vw, 0.5rem);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border: none;
+            border-radius: clamp(10px, 2vw, 12px);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            min-width: min(200px, 100%);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), #007bff);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-orange), #ff4500);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin-top: clamp(2rem, 5vw, 4rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--off-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary-blue);
+        }
+
+        .copyright {
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .section-number {
+                margin-bottom: 0.5rem;
+            }
+            
+            .tools-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tools-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .background-elements,
+            .btn,
+            .nav-links,
+            .footer-links,
+            .cta-section {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            
+            .policy-content {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+            
+            .section-title {
+                color: #0066cc;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header class="header-nav">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="logo-text">QRTools</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="tools.html" class="nav-link">All Tools</a>
+                <a href="#" class="nav-link active">Privacy Policy</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Privacy Policy</h1>
+            <p class="hero-subtitle">
+                Your privacy is our top priority. Learn how we protect your data with our strict no-collection, no-tracking policy.
+            </p>
+            <div class="update-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Last Updated: 7 December 2025</span>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Content -->
+        <div class="policy-content">
+            <!-- Section 1: Core Principles -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    Our Core Privacy Principles
+                </h2>
+                <div class="section-content">
+                    <p>Welcome to QRTools, accessible at <strong>https://algozencode.github.io/Qrtools/</strong>.</p>
+                    <p>We are committed to protecting your privacy and ensuring a safe, secure, and transparent experience while using our tools. This Privacy Policy explains how we handle your information when you use our website and its features.</p>
+                    <p>By using our tools, you agree to the practices described below.</p>
+                    
+                    <div class="highlight-box">
+                        <p>We operate on a strict privacy-first foundation. Our platform is designed in a way that your data stays in your control. Most of our tools work completely in your web browser (client-side), meaning your input never reaches our server.</p>
+                    </div>
+                    
+                    <div class="principles-grid">
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-database-slash"></i>
+                            </div>
+                            <div class="principle-text">We do NOT store user data</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="principle-text">We do NOT track or profile users</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-handshake-slash"></i>
+                            </div>
+                            <div class="principle-text">We do NOT sell or share user data</div>
+                        </div>
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-trash-clock"></i>
+                            </div>
+                            <div class="principle-text">Automatic deletion within 24 hours</div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Your privacy is our top priority.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 2: Information We Do NOT Collect -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    Information We Do NOT Collect
+                </h2>
+                <div class="section-content">
+                    <p>QRTools does not collect any of the following:</p>
+                    
+                    <ul class="no-collect-list">
+                        <li class="no-collect-item">
+                            <i class="fas fa-times-circle no-collect-icon"></i>
+                            <div>Personal information such as name, email, phone, or address</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-times-circle no-collect-icon"></i>
+                            <div>Uploaded content, URLs, text, or files entered into tools</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-times-circle no-collect-icon"></i>
+                            <div>Usage logs linked to identity or browsing patterns</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-times-circle no-collect-icon"></i>
+                            <div>Device identifiers or tracking data</div>
+                        </li>
+                    </ul>
+                    
+                    <p>We also do not use third-party analytics services like Google Analytics that could track you.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Data Processing & Deletion -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    Data Processing & Deletion
+                </h2>
+                <div class="section-content">
+                    <p><strong>Important:</strong> Most of our tools work locally in your browser using JavaScript. This means:</p>
+                    
+                    <div class="highlight-box">
+                        <p><i class="fas fa-check-circle" style="color: var(--green-success); margin-right: 0.5rem;"></i> 
+                        <strong>Your data never leaves your device</strong> when using these tools:</p>
+                        
+                        <div class="tools-list">
+                            <div class="tool-item">QR Code Generator</div>
+                            <div class="tool-item">Hash Generator</div>
+                            <div class="tool-item">Password Generator</div>
+                            <div class="tool-item">URL Shortener</div>
+                            <div class="tool-item">Text Utilities</div>
+                        </div>
+                    </div>
+                    
+                    <p>Some features that require backend requests may temporarily store minimal data needed for functionality. In such cases:</p>
+                    
+                    <div class="principles-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="principle-card">
+                            <i class="fas fa-check-circle principle-icon"></i>
+                            <div class="principle-text">Data is automatically deleted within 24 hours</div>
+                        </div>
+                        <div class="principle-card">
+                            <i class="fas fa-check-circle principle-icon"></i>
+                            <div class="principle-text">No data is stored permanently</div>
+                        </div>
+                        <div class="principle-card">
+                            <i class="fas fa-check-circle principle-icon"></i>
+                            <div class="principle-text">No data is used for analytics or tracking</div>
+                        </div>
+                    </div>
+                    
+                    <p>We maintain strict deletion rules to ensure your safety.</p>
+                </div>
+            </section>
+
+            <!-- Section 4: Cookies and Tracking -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    Cookies and Tracking
+                </h2>
+                <div class="section-content">
+                    <p>QRTools:</p>
+                    
+                    <ul class="no-collect-list">
+                        <li class="no-collect-item">
+                            <i class="fas fa-ban no-collect-icon"></i>
+                            <div>Does not use tracking cookies</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-ban no-collect-icon"></i>
+                            <div>Does not use behavioral tracking</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-ban no-collect-icon"></i>
+                            <div>Does not use personalization cookies</div>
+                        </li>
+                        <li class="no-collect-item">
+                            <i class="fas fa-ban no-collect-icon"></i>
+                            <div>Does not use third-party ad cookies</div>
+                        </li>
+                    </ul>
+                    
+                    <p>We may use simple, non-identifiable technical cookies only if needed for website functionality — never for tracking.</p>
+                </div>
+            </section>
+
+            <!-- Section 5: Third-Party Services -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    Third-Party Services
+                </h2>
+                <div class="section-content">
+                    <p>Our website is hosted on GitHub Pages, which may collect minimal technical logs (such as basic IP-level requests) for security and performance. These logs:</p>
+                    
+                    <div class="highlight-box">
+                        <p><i class="fas fa-info-circle" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> 
+                        <strong>Are controlled by GitHub, not by us</strong></p>
+                        <p><i class="fas fa-info-circle" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> 
+                        <strong>Are not accessible to us in a personalized format</strong></p>
+                        <p><i class="fas fa-info-circle" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> 
+                        <strong>Are used only for platform reliability and abuse prevention</strong></p>
+                    </div>
+                    
+                    <p>You can read GitHub's privacy policy <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" style="color: var(--primary-blue); text-decoration: none;">here</a>.</p>
+                    
+                    <p>No third-party advertising networks or tracking networks are used.</p>
+                </div>
+            </section>
+
+            <!-- Section 6: Children's Privacy -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    Children's Privacy
+                </h2>
+                <div class="section-content">
+                    <p>QRTools is safe for general audiences and does not collect personal data from anyone, including children under 13.</p>
+                    <p>If you are a parent or guardian and have concerns, you may contact us.</p>
+                </div>
+            </section>
+
+            <!-- Section 7: Security of Your Data -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    Security of Your Data
+                </h2>
+                <div class="section-content">
+                    <p>Although we do not store your data permanently, we still prioritize a secure environment. Our security measures include:</p>
+                    
+                    <div class="tools-list" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                        <div class="tool-item">Secure hosting via GitHub Pages</div>
+                        <div class="tool-item">HTTPS encryption</div>
+                        <div class="tool-item">Strict deletion rules</div>
+                        <div class="tool-item">No persistent storage</div>
+                        <div class="tool-item">No databases</div>
+                        <div class="tool-item">No user accounts to compromise</div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>Your privacy and security remain fully protected.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 8: External Links -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    External Links
+                </h2>
+                <div class="section-content">
+                    <p>QRTools may contain links to external websites or tools. We are not responsible for the privacy practices or content of these third-party websites. We recommend reviewing their privacy policies separately.</p>
+                </div>
+            </section>
+
+            <!-- Section 9: Policy Updates -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">9</span>
+                    Policy Updates
+                </h2>
+                <div class="section-content">
+                    <p>We may update this Privacy Policy occasionally to reflect improvements in features, tools, or legal requirements. The "Last Updated" date at the top will always reflect the most recent version.</p>
+                    <p>By continuing to use our website, you agree to the updated terms.</p>
+                </div>
+            </section>
+
+            <!-- Section 10: Contact Information -->
+            <section class="policy-section">
+                <h2 class="section-title">
+                    <span class="section-number">10</span>
+                    Contact Information
+                </h2>
+                <div class="section-content">
+                    <p>If you have questions, suggestions, or privacy concerns, you may contact the site owner:</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>AlgozenCode Team</strong></p>
+                        <p>📧 Email: <a href="mailto:contact@algozencode.com" style="color: var(--primary-blue); text-decoration: none;">contact@algozencode.com</a></p>
+                    </div>
+                    
+                    <p>We respond to privacy-related requests as quickly as possible.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Conclusion</h2>
+            <p class="section-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                QRTools will always remain:
+            </p>
+            
+            <div class="highlight-box" style="background: rgba(255, 255, 255, 0.1); border-left-color: var(--secondary-orange); margin: 2rem auto; max-width: 600px;">
+                <h3 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; text-align: center; background: linear-gradient(to right, var(--primary-blue), var(--secondary-orange)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                    Fast. Simple. Secure. Private.
+                </h3>
+                <p style="text-align: center; margin-top: 0.5rem; font-size: 1.1rem;">
+                    Your data, your control — always.
+                </p>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="tools.html" class="btn btn-secondary">
+                    <i class="fas fa-tools"></i> Try Our Tools
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="tools.html" class="footer-link">All Tools</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 QRTools by AlgozenCode. All rights reserved.<br>
+                Made with <i class="fas fa-heart" style="color: #ff4d4d;"></i> for the digital community.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe policy sections
+        document.querySelectorAll('.policy-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Dynamic font size adjustment
+        function adjustFontSizes() {
+            const width = window.innerWidth;
+            const html = document.documentElement;
+            
+            if (width < 400) {
+                html.style.fontSize = '14px';
+            } else if (width < 768) {
+                html.style.fontSize = '15px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+
+        // Initial adjustment
+        adjustFontSizes();
+        
+        // Adjust on resize
+        window.addEventListener('resize', adjustFontSizes);
+    </script>
+</body>
+</html>
